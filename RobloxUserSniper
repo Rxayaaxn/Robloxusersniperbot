@@ -1,0 +1,31 @@
+import random
+import string
+
+def generate_username(length):
+    characters = string.ascii_lowercase
+    return ''.join(random.choice(characters) for _ in range(length))
+
+def main():
+    print("Welcome to rxayaaxn's bot")
+    
+    while True:
+        user_length = int(input("Select how many letters you want in a username (3, 4, 5, 6): "))
+        if user_length not in [3, 4, 5, 6]:
+            print("Invalid choice. Please select a valid length.")
+            continue
+        
+        num_usernames = int(input("How many available Roblox usernames do you want to generate? "))
+        
+        print("Start generating? (Y/n)")
+        start_generating = input().strip().lower()
+        
+        if start_generating != 'y':
+            break
+        
+        for _ in range(num_usernames):
+            username = generate_username(user_length)
+            print(username)
+
+if __name__ == "__main__":
+    main()
+                   
